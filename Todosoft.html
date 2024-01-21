@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>todo Software</title>
+    <style>
+        .inputbar
+        {
+            width:500px;
+            padding: 15px;
+            font-size: 20px;
+            border-radius: 5px;
+            border:none;
+            border:px solid rgb(239, 152, 152);
+        }
+        .button
+        {
+            background-color: rgb(16, 104, 14);
+            color: white;
+            width:100px;
+            margin-left:20px;
+            border-radius:5px;
+            font-size: 20px;
+            border: none;
+            padding:15px;
+        }
+        .todosoftware
+        {
+            border:2px solid rgb(217, 205, 223);
+            margin: auto;
+            height:100vh;
+            background-color: #d9c1f5;
+            justify-content: center;
+            align-items: center;
+        }
+        .int_button
+        {
+            border:px solid black;
+            width:840px;
+            justify-content: center;
+            margin: auto;
+            margin-bottom: 50px;
+            margin-top: 20px;
+        }
+        .heading
+        {
+            text-align: center;
+            padding-top: 10px;
+        }
+        .button_clr
+        {
+            background-color: rgb(235, 119, 24);
+            color: white;
+            width:140px;
+            margin:0px 10px 0px 20px;
+            border-radius:5px;
+            font-size: 20px;
+            border: none;
+            padding:15px;
+        }
+        
+    </style>
+</head>
+<body>
+   <div class="todosoftware">
+        <div class="int_button">
+            <h1 class="heading">Todo Software</h1>
+            <input class="inputbar" type = "text" placeholder="Type list of items" />
+            <button class="button" onclick = "Oncli_function()">Click</button>
+            <button class="button_clr" onclick = "clearAll()">Clear All</button>
+
+        </div>
+        <div class=" display"></div>
+    </div>
+</body>
+<script>
+    function Oncli_function()
+    {
+            let inputbar = document.querySelector(".inputbar").value;
+            if(inputbar.trim() !== "")
+        {
+            let display_tag = document.querySelector(".display");
+            let div = document.createElement("div");
+            div.innerHTML = inputbar +" ";
+            div.style.color = "";
+            div.style.fontSize ="20px"
+            div.style.width = "820px";
+            div.style.margin = "auto";
+            div.style.marginTop ="10px";
+            div.style.display = "flex";
+            div.style.justifyContent="flex-end";
+            div.style.alignItems = "flex-end";  
+            div.style.backgroundColor = "white";
+            div.style.padding ="10px 0px 10px 20px";
+            div.style.boxShadow = " 0px 2px 10px 2px black";
+
+            let remove_item = document.createElement("button");
+            remove_item.innerHTML = "Remove";
+            remove_item.style.backgroundColor ="red";
+            remove_item.style.color = "white";
+            remove_item.style.padding = "10px";
+            remove_item.style.border = "none";
+            remove_item.style.borderRadius = "5px";
+            remove_item.style.margin = "auto 10% auto auto";
+            remove_item.style.fontSize = "20px";
+
+            remove_item.onclick = function()
+            {
+                display_tag.removeChild(div);
+            }
+            div.append(remove_item);
+            display_tag.append(div);
+            document.querySelector(".inputbar").value = "";
+        }
+    }
+    function clearAll()
+    {
+        let display_tag = document.querySelector(".display");
+        display_tag.innerHTML = "";
+    }
+  
+
+</script>
+</html>
